@@ -1,0 +1,480 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+\geometry{margin=1in}
+
+\begin{document}
+
+%------------------------------------------------
+% Title Page
+%------------------------------------------------
+
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\Huge\bfseries Namal University Mianwali\\[0.5cm]}
+{\Large Department of Computer Science\\[1cm]}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{logo.jpg}
+\end{figure}
+
+
+
+{\LARGE\bfseries Vehicle Transport Management System\\[0.3cm]}
+{\Large Project Proposal\\[1.5cm]}
+
+\textbf{Prepared by:}\\[0.5cm]
+
+\begin{tabular}{@{} l @{\hspace{3cm}} r @{}}
+\textbf{Name} & \textbf{Roll No} \\[0.3cm]
+Tahira Hanif & NUM-BSCS2024-16 \\
+Momina Umar & NUM-BSCS2024-36 \\
+Mubashir Aman & NUM-BSCS2024-37 \\
+\end{tabular}
+
+\vspace{1.5cm}
+
+\begin{spacing}{1.1}
+\textbf{Course:} Database\\
+\textbf{Instructor:} Asia Batool
+\end{spacing}
+
+\vspace{1.5cm}
+
+\textbf{Date:} \today
+
+\vfill
+\end{titlepage}
+\tableofcontents
+\newpage
+%------------------------------------------------
+% Introduction
+%------------------------------------------------
+
+\section{Introduction}
+
+ Efficient vehicle transportation is essential for businesses that handle vehicle export services. Delivering on time, keeping accurate records, and coordinating well between departments are important factors for smooth operations and customer's satisfaction. However, many companies still use manual methods like record books or simple spreadsheets to manage their transportation tasks. These old-fashioned ways can lead to lost data, repeated records, delays in processing orders, and problems with tracking shipments.
+To solve these issues, we propose a Vehicle Transport Management System (VTMS) that brings in a computerized, database driven approach to managing vehicle transportation. This system will keep and manage all operational data in a structured database, making it easy to store, retrieve, and handle transportation related information.
+The VTMS will offer several important features like selecting vehicle types, placing orders, tracking shipments and processing payments. It will also use Role-Based Access Control (RBAC) to ensure that users can access the system based on their roles. The main users will include vehicle buyers, administrators, transport managers, and finance managers.
+By using a centralized database with MySQL, the system will improve data accuracy, cut down on duplicate records, and provide secure management of transportation information. Additionally, it will give real-time updates on shipment status through unique tracking IDs and automatic notifications. Overall, the Vehicle Transport Management System will offer a reliable, efficient, and scalable way to manage vehicle transportation operations in today's digital world.
+
+
+
+%------------------------------------------------
+% Problem Statement
+%------------------------------------------------
+
+\section{Problem Statement}
+
+Vehicle buyers in Pakistan often face difficulties arranging reliable and timely transportation for their purchased vehicles. Existing transport services do not have a centralized system to manage shipments efficiently. This lack of coordination causes delays, inaccurate fee calculations, and limited transparency. Customers cannot easily track their vehicles in real time or verify deliveries securely. Payments and refunds are often unclear or handled inconsistently.
+Transportation companies also face challenges. They struggle to manage available trucks and drivers. Coordinating shipment assignments and maintaining accurate records of vehicles, payments, and customer information is difficult. These issues lead to missed shipments, underused resources, and low customer satisfaction.
+The Vehicle Transport Management System (VTMS) will solve these problems. The system allows customers to book shipments, calculate fees automatically, and make payments securely. It verifies deliveries using OTP and tracks shipments in real time. The system also manages trucks and drivers efficiently. It stores accurate data and provides clear records. VTMS improves transparency, reliability, and the overall efficiency of domestic vehicle transportation services.
+
+
+
+%------------------------------------------------
+% Objectives
+%------------------------------------------------
+
+\section{Objectives}
+The main objective of this project is to design and propose a database driven Vehicle Transport Management System (VTMS) that efficiently manages vehicle transportation operations by storing, organizing, and processing data related to vehicle orders, customers, shipments, and payments.
+The system aims to replace traditional manual record keeping with a centralized database system that ensures accurate tracking of transportation activities, improves data management, and enhances coordination between different stakeholders involved in the vehicle transport process.
+
+
+\begin{itemize}
+
+\item \textbf{Enable Online Shipment Booking:} Allow customers to book vehicle shipments without registration (CustomerID generated automatically from phone/email at booking - no pre-registration account needed), selecting vehicle category and shipment type (exclusive or shared). Store all booking details securely in the database for processing and future reference.
+
+\item \textbf{Calculate Shipment Fees Automatically:}: Determine accurate fees based on vehicle category, shipment type, and distance using Google Maps API. Store the calculated fee in the database and display it transparently to the customer.
+\item \textbf{Handle Payments Efficiently:}Support advance and cash-on-delivery payments. Record all payment transactions in the database, track their status, and enforce the refund policy at the booking stage.
+\item \textbf{Verify Customers and Deliveries via OTP: }Ensure that all bookings and deliveries are confirmed securely using OTP verification. Store OTP verification results and timestamps in the database for validation and auditing purposes.
+\item \textbf{Track Shipments: }Provide status updates for shipments from booking to delivery, including estimated delivery time. Update shipment status and ETA continuously in the database so customers and managers can access real-time information
+\item \textbf{Maintain Vehicle and Driver Records: }Keep an up-to-date database of trucks and drivers. Record availability and assignments, and allow manual assignment of shipments while maintaining logs for operational tracking.
+\item \textbf{Ensure Data Accuracy and Security: }Store and manage all customer, shipment, vehicle, and payment data reliably in the database. Implement role-based access control (RBAC) to restrict access based on user roles (transport manager, finance manager, driver).
+\item \textbf{Support Operational Transparency: }Generate unique tracking IDs for each shipment in the database and maintain clear records for monitoring, reporting, and auditing all shipment operations.
+
+
+\end{itemize}
+
+%------------------------------------------------
+% Scope
+%------------------------------------------------
+
+\section{Scope}
+The scope of the Vehicle Transport Management System (VTMS) is to design and develop a structured database and application system that efficiently manages domestic vehicle shipment and tracking. The system will store, organize, and manage all essential data related to vehicle transport requests, customer information, shipment progress, vehicle categories, shipment types, and payment transactions. It will serve as the central component for tracking and managing all operational data accurately, allowing authorized users to access relevant information when required.
+The system will support the complete workflow of the transportation process, starting from customer shipment booking, vehicle type selection, and shipment type choice (exclusive or shared), to fee calculation, payment processing (advance or cash on delivery), OTP verification, shipment tracking, and final delivery confirmation. The database will generate unique tracking IDs for each order to monitor the transportation progress and provide estimated delivery times.
+The VTMS will implement Role-Based Access Control (RBAC) to ensure that different users, such as transport managers, finance managers, and drivers, have controlled access according to their responsibilities. This will maintain data security and protect sensitive information such as payment details and customer data. The system will also record basic information about available trucks and drivers and assign them manually to shipments, supporting smooth operational coordination.
+The initial version of the system will focus only on the core functionalities required for managing vehicle shipment and tracking. Features such as mobile applications, physical fleet optimization, and advanced analytics are considered outside the scope of this release and may be included in future enhancements.
+Overall, the scope of this project is limited to designing a reliable and well-structured system that supports accurate data storage, retrieval, management, and operational tracking for domestic vehicle transportation activities.
+
+
+%------------------------------------------------
+% Data Collection
+%------------------------------------------------
+
+\section{Data Collection}
+
+The development of the Vehicle Transport Management System (VTMS) requires accurate and relevant data. This data ensures that the system supports real vehicle transportation operations. We collect data from several sources, including a requirement provider and transportation service websites.
+We gather information from the requirement provider (RP) who currently manages a basic vehicle shipment process. They explain how they handle shipment requests, coordinate transportation, and manage payments and refunds. This knowledge helps us understand real operational needs and plan the system workflow.
+We also analyze vehicle transportation service websites such as CarCarrier.pk. We study the website to understand how vehicle shipment services operate. We identify common features such as vehicle booking, shipment tracking, and customer service processes. These observations help us determine realistic data attributes to include in the VTMS database.
+We organize the collected data into structured database tables. This organization allows the system to store and manage information efficiently once the system is implemented.
+
+
+
+%------------------------------------------------
+% Technologies
+%------------------------------------------------
+
+\section{Technology Stack}
+Database Management System (DBMS): MySQL – Relational database for storing shipments, users, vehicles, trucks, drivers, OTPs, payments, and notifications.
+
+\subsection{Frontend}
+
+\begin{itemize}
+\item HTML – Structure and content of web pages
+\item Tailwind CSS – Styling and responsive UI design
+\item JavaScript –Interactive elements and dynamic behavior
+\item React.js – Single-page application framework for fast, responsive frontend
+\end{itemize}
+
+\subsection{Backend}
+
+\begin{itemize}
+\item Node.js –Server-side runtime
+\item Express.js – Framework for API endpoints
+\end{itemize}
+\subsection{APIs/External Services:}
+\begin{itemize}
+    \item Google Maps API – Distance calculation and ETA
+\item JazzSMS API – OTP and notifications
+\item Easypaisa/JazzCash – Payment gateways
+
+\end{itemize}
+\subsection{Security}
+\begin{itemize}
+    \item JWT (JSON Web Tokens) – Authentication
+ \item Role-Based Access Control (RBAC) – Access management
+  \item HTTPS/SSL – Secure communication
+
+\end{itemize}
+
+\subsection{Development Tools:}
+\begin{itemize}
+    \item Git/GitHub – Version control
+\item Selenium – Testing
+\item LaTeX – Documentation
+
+\end{itemize}
+
+
+%------------------------------------------------
+% Functional Requirements
+%------------------------------------------------
+
+\section{System Functionality}
+
+%------------------------------------------------
+\subsection{Customer Booking Module}
+
+\begin{itemize}
+
+\item Allow customers to book vehicle shipments without registration
+\item Enable selection of vehicle category: Motorcycle, Sedan, SUV/MPV, Pickup, or Luxury.
+\item Allow selection of shipment type
+    \begin{itemize}
+    \item Exclusive – •	Allow selection of shipment type
+    \item Shared – cost-effective, may wait for other vehicles
+    \end{itemize}
+\item Store all booking details in the database, including CustomerID, ShipmentID, VehicleCategory, ShipmentType, and booking timestamp.
+\item Generate a unique ShipmentID for tracking each order
+
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Fee Calculation Module}
+
+\begin{itemize}
+
+\item Calculate shipment fees based on:
+    \begin{itemize}
+    \item Vehicle type
+    \item Shipment type
+    \item Distance between pickup and delivery locations (via Google Maps API)
+    \end{itemize}
+
+\item   Store calculated fees in the database linked to the shipment record.
+\item 	Display transparent fees to the customer before confirming the booking.
+
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Payment Module}
+
+\begin{itemize}
+
+\item Support advance payment (e.g., 30% of total) and Cash on Delivery (COD).
+\item Record all payment transactions in the database with fields like PaymentID, ShipmentID, CustomerID, Amount, PaymentType, PaymentStatus, and PaymentTime.
+\item Track payment status in real time and update the database.
+\item Enforce refund policy: refunds only allowed at booking stage
+\item Notify the customer about payment confirmation or failure.
+
+\end{itemize}
+
+%------------------------------------------------
+\subsection{OTP Verification Module}
+
+\begin{itemize}
+
+\item Generate a unique OTP when a customer books a shipment or during delivery confirmation.
+\item Store OTP details in the database: ShipmentID, CustomerID, OTPValue GeneratedTime, ExpiryTime, VerificationStatus.
+\item Validate OTP entered by the customer and update VerificationStatus in the database
+\item Prevent confirmation if OTP is invalid or expired.
+
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Shipment Tracking Module}
+
+\begin{itemize}
+
+\item Track shipment status through stages: Booked → Scheduled → In Transit → Delivered.
+\item Record each status update in the database with timestamp.
+ \item Provide real-time tracking for customers and transport managers.
+\item Display estimated delivery time based on distance, route, and traffic (via Google Maps API).
+
+
+
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Driver and Truck Management Module}
+
+\begin{itemize}
+
+\item Maintain a database of trucks with fields: TruckID, TruckType, Capacity, CurrentStatus (Available, In Transit, Maintenance).
+\item  Maintain a database of drivers with fields: DriverID, Name, LicenseNumber, AssignedTruckID, CurrentStatus (Available, On Duty, Off Duty).
+\item  Allow transport managers to manually assign drivers and trucks to shipments.
+\item  Update truck and driver statuses in the database when assigned or freed.
+\item  Handle unavailability: mark shipment as Pending if no truck or driver is available. Notify customer of delay.
+
+
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Notification Module}
+
+\begin{itemize}
+
+\item Send notifications to customers and transport managers for:
+    \begin{itemize}
+    \item Booking confirmation
+      \item Payment confirmation
+       \item OTP verification
+     \item Shipment status updates
+      \item Delivery confirmation
+
+    \end{itemize}
+\item Record notification history in the database
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Data Management Module}
+
+\begin{itemize}
+
+\item Store all operational data: customers, shipments, payments, vehicles, trucks, drivers, OTPs, and notifications.
+\item Implement Role-Based Access Control (RBAC):
+
+
+    \begin{itemize}
+    \item Transport Manager: full access to assign shipments and update status.
+    \item Finance Manager: access to payment records and refund processing.
+    \item Drivers: view assigned shipments and update delivery status
+
+    \end{itemize}
+\item  Ensure database enforces data validation for phone numbers, emails, payment amounts, and shipment details
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Reporting and Transparency Module}
+
+\begin{itemize}
+
+\item Generate unique tracking IDs for each shipment.
+\item Enable transport managers to view shipment history and current status.
+\item Enable finance managers to view payment and refund reports.
+\item Allow the system to produce reports on available trucks, drivers, and pending shipments.
+
+
+\end{itemize}
+
+%------------------------------------------------
+% System Actors
+%------------------------------------------------
+
+\section{User Classes}
+
+\subsection{Customer / Vehicle Buyer}
+
+\textbf{Description:} Individual who wants to transport a vehicle.
+
+\textbf{Responsibilities / Actions:}
+\begin{itemize}
+    \item Book shipments without registration.
+\item Select vehicle category and shipment type (exclusive/shared).
+\item View shipment fees and payment options.
+\item Make payments (advance or cash on delivery).
+\item Receive OTP for booking and delivery verification.
+\item Track shipment status in real time.
+\item Receive notifications about booking, payment, and delivery.
+Database Access:
+\item Read/write access to their own booking, shipment, and payment records.
+\item Can view tracking status but cannot modify shipment, truck, or driver data.
+
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Transport Manager}
+
+\textbf{Description:} Staff responsible for managing shipments and assigning resources.
+
+\textbf{Responsibilities / Actions:}
+
+\begin{itemize}
+\item View all shipment requests.
+\item Assign available trucks and drivers to shipments.
+\item Update shipment status (Scheduled, In Transit, Delivered).
+\item Monitor real-time shipment tracking and handle delays.
+\item Generate operational reports for shipments and resources.
+Database Access:
+\item Full read/write access to shipments, trucks, drivers, and notifications.
+\item Read access to customer and payment details.
+\item Cannot modify system-level security settings.
+
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Finance Manager}
+
+\textbf{Description:} Staff responsible for handling payments and refunds.
+
+\textbf{Responsibilities / Actions:}
+
+\begin{itemize}
+\item View all payments (advance or COD) linked to shipments.
+\item Track payment status and verify successful transactions.
+\item Process refunds according to policy.
+\item Generate financial reports.
+Database Access:
+\item Read/write access to payment records.
+\item Read access to shipment and customer records.
+\item Cannot modify trucks, drivers, or shipment assignments.
+
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Driver}
+
+\textbf{Description:} Personnel responsible for transporting vehicles.
+
+\textbf{Responsibilities / Actions:}
+
+\begin{itemize}
+\item View assigned shipments and vehicle details.
+\item Update shipment status during delivery (In Transit → Delivered).
+\item Confirm delivery using OTP.
+Database Access:
+\item Read access to assigned shipments only.
+\item Write access to update shipment status and OTP confirmation.
+\item Cannot view or modify payments, other drivers, or trucks not assigned to them.
+
+\end{itemize}
+
+%------------------------------------------------
+\subsection{Admin}
+
+\textbf{Description:} System administrator responsible for system management.
+
+\textbf{Responsibilities / Actions:}
+
+\begin{itemize}
+\item Manage user accounts for transport managers, finance managers, and drivers.
+\item Add or remove trucks, drivers, and vehicle categories.
+\item Configure shipment types, fees, and refund rules.
+\item Monitor system performance, backups, and data integrity.
+\item Generate comprehensive reports for operations and finance.
+Database Access:
+\item Full read/write access to all database tables (users, shipments, trucks, drivers, payments, OTPs, notifications).
+\item Can update system settings, fees, and rules.
+
+\end{itemize}
+
+\section{Task Division}
+
+VTMS Modules Assigned to Team Members
+
+\subsection{Tahira Hanif}
+\textbf{Focus:} Customer interactions and resource management
+\begin{itemize}
+    \item Customer Booking Module: Create shipment booking, enter pickup/delivery locations, select vehicle category and shipment type
+\item  Driver Management Module: Add/update driver details, assign driver to shipments
+\item  Fleet Management Module: Add/update truck details, track truck availability
+
+\end{itemize}
+
+\subsection{Mubashir Aman}
+\textbf{Focus} Authentication, shipment processing, and notifications
+\begin{itemize}
+    \item Authentication Module: Login/Logout, JWT authentication, role-based permissions
+  \item Shipment Management Module: Create shipment record, assign driver/truck, update shipment status
+  \item Shipment Tracking Module: Track shipment using tracking ID, show shipment status and ETA
+\item Notification Module: Send booking confirmation, shipment updates, OTP delivery confirmation
+
+\end{itemize}
+
+\subsection{Momina Umer}
+\textbf{Focus} Payment, OTP, and pricing
+\begin{itemize}
+    \item OTP Verification Module: Generate OTP, send via JazzSMS API, verify OTP for booking and delivery
+ \item Fee Calculation Module: Calculate shipment cost using Google Maps API, apply vehicle/shipment type multipliers, display total cost and ETA
+ \item Payment Module: Record advance/COD payments, track payment status, refund policy at booking stage, integrate Easypaisa and JazzCash payment gateways
+
+\end{itemize}
+
+
+%------------------------------------------------
+% Conclusion
+%------------------------------------------------
+
+\section{Conclusion}
+The Vehicle Transport Management System (VTMS) improves domestic vehicle shipment operations. Customers can book shipments, choose vehicle categories and shipment types, calculate fees, make payments, and track shipments in real time. The system allows transport managers to assign trucks and drivers efficiently. It verifies bookings and deliveries using OTP and keeps accurate records of shipments, payments, and notifications.
+Customers experience a transparent and reliable service. They face fewer delays and errors in vehicle delivery. Transport companies can manage resources better and monitor operations clearly. Payments are tracked, and refund policies are enforced. The system provides reports that help finance and operations teams make decisions.
+VTMS increases efficiency and customer satisfaction. It ensures reliable vehicle transportation. The system also creates a foundation for future improvements, including analytics, mobile integration, and expanded services.
+\section{ References}
+\begin{itemize}
+    \item CarCarrier.pk Vehicle Transport Services in Pakistan
+   \item ChatGPT Conversation: https://chatgpt.com/c/69b25b22-37fc-83ab-bb9f-89a521259246
+   \item Google Maps API Documentation
+   \item JazzSMS API Documentation
+   \item Easypaisa/JazzCash Developer APIs
+    \item MySQL Official Documentation
+    \item GitHub Repository: [https://github.com/MominaUmar74/VTMS.git]
+
+\end{itemize}
+\section{AI Prompts}
+\begin{itemize}
+    \item "I am working on a database project for a Vehicle Transport Management System (VTMS). We have noticed that in Pakistan the manual record-keeping transport sector leads to tracking issues and payment transparency. Can you help me outline a proposal structure that covers everything from Problem Statement to Technology Stack?"
+   \item "For our VTMS, we decided on five vehicle categories: Motorcycle, Sedan, SUV/MPV, Pickup, and Luxury. Does this cover the standard needs for a domestic export service, and what specific data attributes should we store in a MySQL table to track these shipments effectively?"
+  \item "Our project uses Node.js and MySQL. We want to automate fee calculation using the Google Maps API and send delivery verifications via JazzSMS. How do these two APIs typically interact with a backend to update a shipment status in real-time?"
+\item  "I have drafted the conclusion for our VTMS project. Can you review it to ensure it clearly emphasizes how the system increases efficiency and customer satisfaction through centralized records?"
+\item "We are implementing Role-Based Access Control. Can you help us define the specific database permissions for a Transport Manager versus a Finance Manager to ensure data security?"
+
+\end{itemize}
+
+\end{document}
